@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Build">
+  	<Message Text="Building master solution"/>
+    
+    <CallTarget Targets="BuildFramework;BuildCompA;BuildCompB;BuildCompC;BuildCompD"/>
+  </Target>
+
+  <Target Name="BuildFramework">
+    <MSBuild Projects="../Framework/Build/build.msbuild" Targets="Build"/>
+  </Target>
+
+  <Target Name="BuildCompA" DependsOnTargets="BuildFramework">
+    <MSBuild Projects="../CompA/Build/build.msbuild" Targets="Build"/>
+  </Target>
+
+  <Target Name="BuildCompB">
+    <MSBuild Projects="../CompB/Build/build.msbuild" Targets="Build"/>
+  </Target>
+
+  <Target Name="BuildCompC" DependsOnTargets="BuildFramework;BuildCompA;BuildCompB">
+    <MSBuild Projects="../CompC/Build/build.msbuild" Targets="Build"/>
+  </Target>
+
+  <Target Name="BuildCompD" DependsOnTargets="BuildFramework;BuildCompC">
+    <MSBuild Projects="../CompD/Build/build.msbuild" Targets="Build"/>
+  </Target>
+</Project>

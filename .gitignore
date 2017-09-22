@@ -1,0 +1,7 @@
+obj
+bin
+*.suo
+_ReSharper.*
+**.DotSettings.user
+**.csproj.user
+*.nupkg
