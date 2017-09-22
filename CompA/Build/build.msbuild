@@ -4,11 +4,12 @@
     <Message Text="Building CompA solution"/>
     <MSBuild Projects="..\Src\CompA.sln" Targets="Build"/>
   </Target>
+
   <Target Name="PublishLib" AfterTargets="Build">
     <Message Text="PublishLib"/>
     <ItemGroup>
       <Files Include="..\Src\ComponentA\bin\$(Configuration)\*.*" />
     </ItemGroup>
-    <Copy SourceFiles="@(Files)" DestinationFolder="..\..\Lib"/>
+    <Copy SourceFiles="@(Files)" DestinationFolder="..\..\Lib" SkipUnchangedFiles="True"/>
   </Target>                                 
 </Project>

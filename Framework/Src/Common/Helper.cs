@@ -7,7 +7,6 @@ namespace Common
         public void Log(string message)
         {
             Console.Out.WriteLine($"{message}");
-        }
-        
+        }        
     }
 }
