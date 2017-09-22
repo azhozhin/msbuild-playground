@@ -4,4 +4,11 @@
   	<Message Text="Building CompB solution"/>
   	<MSBuild Projects="..\Src\CompB.sln" Targets="Build"/>
   </Target>
+  <Target Name="PublishLib" AfterTargets="Build">
+    <Message Text="PublishLib"/>
+    <ItemGroup>
+      <Files Include="..\Src\ComponentB\bin\$(Configuration)\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(Files)" DestinationFolder="..\..\Lib"/>
+  </Target>
 </Project>

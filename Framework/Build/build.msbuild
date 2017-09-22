@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Target Name="Build">
-  	<Message Text="Building Framework solution"/>
-  	<MSBuild Projects="..\Src\Framework.sln" Targets="Build"/>
+    <Message Text="Building Framework solution"/>
+    <MSBuild Projects="..\Src\Framework.sln" Targets="Build"/>
+  </Target>
+  <Target Name="PublishLib" AfterTargets="Build">
+    <Message Text="PublishLib"/>
+    <ItemGroup>
+      <Files Include="..\Src\Common\bin\$(Configuration)\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(Files)" DestinationFolder="..\..\Lib"/>
   </Target>
 </Project>
