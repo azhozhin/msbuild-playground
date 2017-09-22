@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Component Include="BuildFramework"/>
+    <Component Include="BuildCompA"/>
+    <Component Include="BuildCompB"/>
+    <Component Include="BuildCompC"/>
+    <Component Include="BuildCompD"/> 
+  </ItemGroup>
+
   <Target Name="Build">
-  	<Message Text="Building master solution"/>
+    <Message Text="Building master solution"/>
     
-    <CallTarget Targets="BuildFramework;BuildCompA;BuildCompB;BuildCompC;BuildCompD"/>
+    <CallTarget Targets="@(Component)"/>
   </Target>
 
   <Target Name="BuildFramework">
