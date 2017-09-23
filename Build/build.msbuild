@@ -7,11 +7,11 @@
  
   <!-- Component list -->
   <ItemGroup>
+    <Components Include="Framework"/>
     <Components Include="CompA"/>
     <Components Include="CompB"/>
     <Components Include="CompC"/>
     <Components Include="CompD"/>
-    <Components Include="Framework"/>
   </ItemGroup>
 
   <!-- Component dependencies -->
@@ -37,13 +37,14 @@
 
   <!-- Main targets -->
   <Target Name="Build">   
+    <MakeDir Directories="..\Lib"/>
     <CallTarget Targets="SetTargetsBuild"/>
     <CallTarget Targets="@(Components)"/>
   </Target>
   <Target Name="Clean">
     <CallTarget Targets="SetTargetsClean"/>
     <CallTarget Targets="@(Components)"/>
-    <RemoveDir Directories="../Lib"/>
+    <RemoveDir Directories="..\Lib"/>
   </Target>
 
   <!-- Utility targets -->

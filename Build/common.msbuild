@@ -9,7 +9,10 @@
   </Target>
 
   <Target Name="PublishLib" AfterTargets="Build">
-    <Message Text="PublishLib @(PublishLibFiles)"/>
-    <Copy SourceFiles="@(PublishLibFiles)" DestinationFolder="..\..\Lib" SkipUnchangedFiles="True"/>
+    <ItemGroup>
+      <_PublishLibFiles Include="$(PublishLibFiles)" />
+    </ItemGroup>                                   
+    <Message Text="PublishLib Files=@(_PublishLibFiles) Configuration=$(Configuration)"/>
+    <Copy SourceFiles="@(_PublishLibFiles)" DestinationFolder="..\..\Lib" SkipUnchangedFiles="True"/>
   </Target>
 </Project>

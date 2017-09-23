@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\Build\common.msbuild"/>
+
   <PropertyGroup>
     <Solution>..\Src\CompC.sln</Solution>
+    <PublishLibFiles>..\Src\ComponentC\bin\$(Configuration)\*.*</PublishLibFiles>
   </PropertyGroup>
-  <ItemGroup>
-    <PublishLibFiles Include="..\Src\ComponentC\bin\$(Configuration)\*.*"/>
-  </ItemGroup>
-
-  <Import Project="..\..\Build\common.msbuild"/>
 
 </Project>
