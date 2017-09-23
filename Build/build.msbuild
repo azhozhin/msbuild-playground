@@ -16,23 +16,23 @@
 
   <!-- Component dependencies -->
   <Target Name="Framework">
-    <MSBuild Projects="../Framework/Build/build.msbuild" Targets="$(_Targets)"/>
+    <MSBuild Projects="..\Framework\Build\build.msbuild" Targets="$(_Targets)"/>
   </Target>
 
   <Target Name="CompA" DependsOnTargets="Framework">
-    <MSBuild Projects="../CompA/Build/build.msbuild" Targets="$(_Targets)"/>
+    <MSBuild Projects="..\CompA\Build\build.msbuild" Targets="$(_Targets)"/>
   </Target>
 
   <Target Name="CompB">
-    <MSBuild Projects="../CompB/Build/build.msbuild" Targets="$(_Targets)"/>
+    <MSBuild Projects="..\CompB\Build\build.msbuild" Targets="$(_Targets)"/>
   </Target>
 
   <Target Name="CompC" DependsOnTargets="Framework;CompA;CompB">
-    <MSBuild Projects="../CompC/Build/build.msbuild" Targets="$(_Targets)"/>
+    <MSBuild Projects="..\CompC\Build\build.msbuild" Targets="$(_Targets)"/>
   </Target>
 
   <Target Name="CompD" DependsOnTargets="Framework;CompC">
-    <MSBuild Projects="../CompD/Build/build.msbuild" Targets="$(_Targets)"/>
+    <MSBuild Projects="..\CompD\Build\build.msbuild" Targets="$(_Targets)"/>
   </Target>
 
   <!-- Main targets -->

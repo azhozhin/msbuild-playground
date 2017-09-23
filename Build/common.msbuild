@@ -7,4 +7,9 @@
   <Target Name="Clean">
     <MSBuild Projects="$(Solution)" Targets="Clean"/>
   </Target>
+
+  <Target Name="PublishLib" AfterTargets="Build">
+    <Message Text="PublishLib @(PublishLibFiles)"/>
+    <Copy SourceFiles="@(PublishLibFiles)" DestinationFolder="..\..\Lib" SkipUnchangedFiles="True"/>
+  </Target>
 </Project>

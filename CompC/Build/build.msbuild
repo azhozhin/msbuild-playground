@@ -3,14 +3,10 @@
   <PropertyGroup>
     <Solution>..\Src\CompC.sln</Solution>
   </PropertyGroup>
+  <ItemGroup>
+    <PublishLibFiles Include="..\Src\ComponentC\bin\$(Configuration)\*.*"/>
+  </ItemGroup>
 
   <Import Project="..\..\Build\common.msbuild"/>
 
-  <Target Name="PublishLib" AfterTargets="Build">
-    <Message Text="PublishLib"/>
-    <ItemGroup>
-      <Files Include="..\Src\ComponentC\bin\$(Configuration)\*.*" />
-    </ItemGroup>
-    <Copy SourceFiles="@(Files)" DestinationFolder="..\..\Lib" SkipUnchangedFiles="True"/>
-  </Target>
 </Project>
